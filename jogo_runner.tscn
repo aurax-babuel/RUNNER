@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://d0jq2xecubj8w"]
+
+[ext_resource type="Script" uid="uid://c3fql4ngu3iyf" path="res://menu.gd" id="1_m3qsd"]
+[ext_resource type="Texture2D" uid="uid://bll366kxr8q3j" path="res://recursos/background.png" id="2_xravt"]
+[ext_resource type="FontFile" uid="uid://dfs60lcwuifj4" path="res://recursos/PressStart2P-Regular.ttf" id="3_61mh5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4hy44"]
+texture = ExtResource("2_xravt")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytr4m"]
+bg_color = Color(0.09542092, 0.87570006, 2.3102762e-06, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l48gv"]
+bg_color = Color(0.047419988, 0.5764545, 1.540184e-06, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecwwl"]
+bg_color = Color(0.6901961, 0.6509804, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kk3ma"]
+bg_color = Color(0.88431424, 3.200695e-06, 1.1551381e-06, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrnbx"]
+bg_color = Color(0.52026963, 5.715527e-07, 2.8878452e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqepy"]
+bg_color = Color(0.4166806, 0.2349658, 0.0043512606, 1)
+
+[node name="Menu" type="Control" unique_id=2021922132]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m3qsd")
+
+[node name="fundo" type="Panel" parent="." unique_id=542855409]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4hy44")
+
+[node name="titulo" type="Label" parent="." unique_id=100285934]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 378.0
+offset_top = 184.0
+offset_right = -372.0
+offset_bottom = -397.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 7
+theme_override_fonts/font = ExtResource("3_61mh5")
+theme_override_font_sizes/font_size = 67
+text = "RUNNER"
+
+[node name="botoes" type="VBoxContainer" parent="." unique_id=1747886981]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = 128.0
+offset_right = 120.0
+offset_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 54
+
+[node name="jogar" type="Button" parent="botoes" unique_id=1582533364]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_61mh5")
+theme_override_font_sizes/font_size = 37
+theme_override_styles/normal = SubResource("StyleBoxFlat_ytr4m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_l48gv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ecwwl")
+text = "jogar"
+
+[node name="sair" type="Button" parent="botoes" unique_id=1097051551]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_61mh5")
+theme_override_font_sizes/font_size = 37
+theme_override_styles/normal = SubResource("StyleBoxFlat_kk3ma")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nrnbx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iqepy")
+text = "sair"
+
+[connection signal="pressed" from="botoes/jogar" to="." method="_on_jogar_pressed"]
+[connection signal="pressed" from="botoes/sair" to="." method="_on_sair_pressed"]
